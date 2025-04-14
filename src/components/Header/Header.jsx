@@ -1,8 +1,9 @@
 import React from 'react'
+import './Header.css'
 
 function Header() {
     return (
-        <div>Header</div>
+        <img className="logo" src='/logo.svg' alt='Логотип' />
     )
 }
 
