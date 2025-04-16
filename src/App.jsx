@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 import Button from './components/Button/Button';
 import CardButton from './components/CardButton/CardButton';
@@ -7,6 +8,7 @@ import JournalItem from './components/JournalItem/JournalItem';
 import JournalList from './components/JournalList/JournalList';
 import Body from './layouts/Body/Body';
 import LeftPanel from './layouts/LeftPanel/LeftPanel';
+import JournalForm from './components/JournalForm/JournalForm';
 
 function App() {
   const data = [
@@ -21,6 +23,7 @@ function App() {
       date: new Date()
     },
   ]
+
   return (
     <div className='app'>
       <LeftPanel>
@@ -44,9 +47,9 @@ function App() {
         </JournalList>
       </LeftPanel>
       <Body>
-        Body
+        <JournalForm />
       </Body>
-      <Button />
+      {/* <Button /> */}
 
     </div>
   );
