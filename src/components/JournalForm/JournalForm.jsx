@@ -9,7 +9,6 @@ function JournalForm() {
         // console.log(event);
         console.log(inputData);
         setInputData(event.target.value);
-
     }
 
     const addJournalItem = (e) => {
@@ -17,7 +16,7 @@ function JournalForm() {
         const formData = new FormData(e.target)
         const formProps = Object.fromEntries(formData)
         console.log(formProps)
-        console.log(formProps.post)
+        // console.log(formProps.post)
     }
     return (
         <>
