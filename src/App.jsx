@@ -33,33 +33,16 @@ function App() {
       text: item.text,
       title: item.title,
       date: new Date(item.date),
-      id: Math.max(...oldItems.map(i => i.id)) + 1 //TODO находим max id в старом массиве и +1 и доавляем id чтобы не ренерить каждый раз заново
+      id: oldItems.length > 0 ? Math.max(...oldItems.map(i => i.id)) + 1 : 1 //TODO находим max id в старом массиве и +1 и доавляем id чтобы не ренерить каждый раз заново
     }])
   }
-  const sortItems = (a, b) => {
-    if (a.date > b.date) {
-      return -1
-    } else {
-      return 1;
-    }
-  }
+
   return (
     <div className='app'>
       <LeftPanel>
         <Header />
         <JournalAddButton />
-        <JournalList>
-          {/* {[<Button>1</Button>, <Button>2</Button>]} */}
-          {items.sort(sortItems).map(el => (
-            <CardButton key={el.id}>
-              <JournalItem
-                title={el.title}
-                text={el.text}
-                date={el.date}
-              />
-            </CardButton>
-          ))}
-        </JournalList>
+        <JournalList items={items} />
       </LeftPanel>
       <Body>
         <JournalForm onSubmit={addItem} />
