@@ -6,7 +6,7 @@
 	border: none;
 	cursor: pointer;
 	text-align: start;
-	display: block;
+	/* display: block; TODO */
 	width: 100%;
 }
 

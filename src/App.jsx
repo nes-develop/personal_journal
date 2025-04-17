@@ -8,18 +8,18 @@ import LeftPanel from './layouts/LeftPanel/LeftPanel';
 import JournalForm from './components/JournalForm/JournalForm';
 
 const INITIAL_DATA = [
-  {
-    id: 1,
-    title: 'Подготовка к обновлению курсов',
-    text: 'Сегодня провёл весь день за...',
-    date: new Date()
-  },
-  {
-    id: 2,
-    title: 'Поход в годы',
-    text: 'Думал, что очень много време...',
-    date: new Date()
-  }
+  // {
+  //   id: 1,
+  //   title: 'Подготовка к обновлению курсов',
+  //   text: 'Сегодня провёл весь день за...',
+  //   date: new Date()
+  // },
+  // {
+  //   id: 2,
+  //   title: 'Поход в годы',
+  //   text: 'Думал, что очень много време...',
+  //   date: new Date()
+  // }
 ]
 
 function App() {
