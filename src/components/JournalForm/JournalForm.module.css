@@ -21,7 +21,7 @@
     align-items: center;
     gap: 20px;
     /*для выравнивания друг над другом */
-    min-width: 130px;
+    min-width: 150px;
 }
 
 .form-row {

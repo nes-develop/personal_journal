@@ -1,15 +1,17 @@
-import { React, useState } from 'react'
+import { React, useEffect, useState } from 'react'
 import styles from './JournalForm.module.css'
 import Button from '../Button/Button';
 import cn from 'classnames'
 
+const INITIAL_STATE = {
+    title: true,
+    post: true,
+    date: true
+}
+
 function JournalForm({ onSubmit }) {
 
-    const [formValidState, setFormValidState] = useState({
-        title: true,
-        text: true,
-        date: true
-    })
+    const [formValidState, setFormValidState] = useState(INITIAL_STATE)
 
     // const [inputData, setInputData] = useState('')
     // const inputChange = (event) => {
@@ -17,6 +19,21 @@ function JournalForm({ onSubmit }) {
     //     console.log(inputData);
     //     setInputData(event.target.value);
     // }
+
+    useEffect(() => {
+        let timerId;
+        if (!formValidState.date || !formValidState.post || !formValidState.title) {
+            timerId = setTimeout(() => {
+                console.log('Очистка состояния')
+                setFormValidState(INITIAL_STATE)
+
+            }, 2000)
+        }
+
+        return () => {
+            clearTimeout(timerId)
+        }
+    }, [formValidState]) // зависимый эффект от валидации
 
     const addJournalItem = (e) => {
         e.preventDefault();
@@ -77,7 +94,7 @@ function JournalForm({ onSubmit }) {
                     <input type='text' name='tag' id='tag' className={styles['input']} />
                 </div>
 
-                <textarea name="post" id='post' cols="30" rows="10" className={cn(styles['input'], {
+                <textarea name='post' id='post' cols="30" rows="10" className={cn(styles['input'], {
                     [styles['invalid']]: !formValidState.post
                 })}></textarea>
                 <Button text="Сохранить" onClick={() => { console.log('Нажали') }} />
